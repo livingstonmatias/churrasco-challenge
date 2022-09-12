@@ -20,6 +20,7 @@
         v-model="auth.password"
         hide-details
         placeholder="Password"
+        type="password"
         class="px-4"
         flat
         solo
@@ -31,7 +32,7 @@
     </v-card>
 
     <div class="d-flex align-center justify-space-between">
-      <v-checkbox dark append="mdi-lock" label="remember"></v-checkbox>
+      <v-checkbox dark off-icon="mdi-square" label="remember me"></v-checkbox>
 
       <v-btn
         depressed
@@ -74,7 +75,14 @@ export default {
 
       login(this.auth)
         .then(() => this.$router.push("/products"))
-        .catch((err) => toastAlert({ type: "error", message: err }))
+        .catch((err) =>
+          toastAlert({
+            type: "error",
+            message: err
+              ? err
+              : "oops! we had problems processing your request",
+          })
+        )
         .finally(() => (this.isLoading = false));
     },
   },

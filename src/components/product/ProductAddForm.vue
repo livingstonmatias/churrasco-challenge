@@ -100,7 +100,6 @@
         >
           <span class="btn-label">Cancel</span>
         </v-btn>
-
         <v-btn
           depressed
           large

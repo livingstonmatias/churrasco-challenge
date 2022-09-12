@@ -27,17 +27,18 @@ const routes = [
     path: "/",
     name: "products",
     component: DefaultLayout,
-    beforeEnter: isAuth,
     children: [
       {
         path: "products",
         name: "products-list",
         component: Products,
+        beforeEnter: isAuth,
       },
       {
         path: "products/add",
         name: "products-description",
         component: AddProduct,
+        beforeEnter: isAuth,
       },
     ],
   },

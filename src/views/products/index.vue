@@ -12,7 +12,7 @@
           v-model="search"
           append-icon="mdi-magnify"
           label="Search"
-          placeholder="Busca por nombre o descripcion del producto"
+          placeholder="Search by product name or description"
           outlined
           dense
           hide-details

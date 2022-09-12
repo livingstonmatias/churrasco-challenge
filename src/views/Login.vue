@@ -1,10 +1,10 @@
 <template>
   <v-container class="login d-flex flex-column align-center justify-center">
     <v-img
-      :src="require('@/assets/LOGO1.png')"
+      src="https://res.cloudinary.com/dfl2pqtq7/image/upload/v1662980173/resources/LOGO1_agokpd.png"
       class="my-3"
       contain
-      max-height="95"
+      max-height="120"
     />
     <FormLogin />
   </v-container>
@@ -19,8 +19,6 @@ export default {
   components: {
     FormLogin,
   },
-
-  data: () => ({}),
 };
 </script>
 

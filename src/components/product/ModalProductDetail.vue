@@ -14,9 +14,13 @@
       <v-card-text>
         <v-row>
           <v-col cols="12" lg="6">
-            <v-carousel hide-delimiters height="300">
+            <v-carousel
+              hide-delimiters
+              :show-arrows="pictures.length > 1"
+              height="300"
+            >
               <v-carousel-item
-                v-for="(picture, i) in product?.pictures"
+                v-for="(picture, i) in pictures"
                 :key="i"
                 :src="picture"
               ></v-carousel-item>
@@ -43,7 +47,7 @@
                   </tr>
 
                   <tr>
-                    <td class="text-left">Descripcion</td>
+                    <td class="text-left">Description</td>
                     <td class="text-right">{{ product.descripcion }}</td>
                   </tr>
 
@@ -69,12 +73,35 @@
 </template>
 
 <script>
+const notAvailable =
+  "https://res.cloudinary.com/dfl2pqtq7/image/upload/v1662980154/resources/not-available_l79wdk.png";
+
 export default {
   name: "modal-details",
 
   props: {
     value: { type: Boolean, default: false },
     product: { type: Object },
+  },
+
+  data: () => ({
+    pictures: [],
+  }),
+
+  beforeUpdate() {
+    const propsPictures = this.product?.pictures;
+
+    if (Array.isArray(propsPictures)) {
+      this.pictures = propsPictures.filter((pic) => pic);
+    }
+
+    if (this.pictures.length === 0) this.pictures[0] = notAvailable;
+
+    if (this.pictures.length > 0) {
+      this.pictures = this.pictures.map((p) =>
+        p.startsWith("http") || p.startsWith("data:") ? p : notAvailable
+      );
+    }
   },
 };
 </script>

@@ -2,7 +2,10 @@
   <v-main>
     <v-toolbar flat color="primary">
       <div class="container d-flex justify-space-between align-center">
-        <img height="36px" src="@/assets/churrasco-brand.png" />
+        <img
+          height="36px"
+          src="https://res.cloudinary.com/dfl2pqtq7/image/upload/v1662980185/resources/churrasco-brand_jzn61d.png"
+        />
 
         <ModalPreventLogout />
       </div>

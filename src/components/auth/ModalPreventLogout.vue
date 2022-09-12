@@ -14,7 +14,7 @@
       </v-card-title>
 
       <v-card-text>
-        <h2>Estas seguro que quiere salir</h2>
+        <h2>Are you sure you want to leave the session?</h2>
       </v-card-text>
 
       <v-card-actions>

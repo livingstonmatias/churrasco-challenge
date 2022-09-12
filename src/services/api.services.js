@@ -4,7 +4,6 @@ const BASE_UPLOAD_URL = process.env.VUE_APP_API_BASE_UPLOAD_URL;
 
 const churrasco = axios.create({
   baseURL: BASE_URL,
-  timeout: 5000,
   headers: { "Content-Type": "application/json" },
 });
 
@@ -28,7 +27,9 @@ churrasco.interceptors.response.use(
 
     if (typeof message !== "object") return Promise.reject(message);
 
-    return Promise.reject(message?.msg || "Upps! Tuvimos un problema");
+    return Promise.reject(
+      message?.msg || "oops! we had problems processing your request"
+    );
   }
 );
 
